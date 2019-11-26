@@ -271,4 +271,4 @@ def update_fig(input_value):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=9859)
+    app.run_server(debug=True, port=8080)
