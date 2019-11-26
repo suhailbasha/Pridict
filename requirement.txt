@@ -4,7 +4,7 @@ dash-html-components==0.13.4
 dash-renderer==0.12.1
 dash-table==3.1.11
 dash-table-experiments==0.6.0
-dash.ly==0.17.3
+dash.ly==0.23.1
 plotly==2.0.11
 pandas==0.24.2
 tensorflow==1.14.0
