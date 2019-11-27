@@ -10,3 +10,4 @@ pandas==0.24.2
 tensorflow==1.14.0
 keras==2.2.5
 scikit-learn==0.20.3
+google-cloud-storage==1.23.0
