@@ -31,7 +31,7 @@ colors = {
     'text': 'white'
 }
 
-df = pd.read_csv('https://storage.cloud.google.com/grace_bucket/suhail/1minstock.csv?authuser=2', sep=",")
+df = pd.read_csv('https://raw.githubusercontent.com/suhailbasha/algorithms/master/1minstock.csv, sep=",")
 
 available_indicators = df['Ticker'].unique()
 
