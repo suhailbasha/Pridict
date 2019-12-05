@@ -6,7 +6,6 @@ import dash_html_components as html
 from dash.dependencies import Output, Input
 import plotly.graph_objs as go
 import numpy as np
-from google.cloud import storage 
 from keras.layers import LSTM, Dense, Dropout
 
 from keras.layers.recurrent import GRU
