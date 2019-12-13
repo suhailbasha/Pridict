@@ -7,7 +7,8 @@ from dash.dependencies import Output, Input
 import plotly.graph_objs as go
 import numpy as np
 from keras.layers import LSTM, Dense, Dropout
-
+from flask import Flask
+import os
 from keras.layers.recurrent import GRU
 from keras.models import Sequential, load_model
 import math
@@ -30,11 +31,15 @@ colors = {
     'text': 'white'
 }
 
-df = pd.read_csv('https://raw.githubusercontent.com/suhailbasha/algorithms/master/1minstock.csv', sep=",")
+server = Flask(__name__)
+server.secret_key = os.environ.get('secret_key', 'secret')
+app = dash.Dash(name = __name__, server = server)
+app.config.supress_callback_exceptions = True
+
+df = pd.read_csv('https://raw.githubusercontent.com/suhailbasha/algorithms/master/1minstock.csv')
 
 available_indicators = df['Ticker'].unique()
 
-app = dash.Dash(__name__)
 
 app.layout = html.Div([
     html.H2('stock prediction'),
