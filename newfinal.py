@@ -33,7 +33,7 @@ colors = {
 
 server = flask.Flask(__name__)
 app = dash.Dash(__name__, server=server)
-df = pd.read_csv('https://raw.githubusercontent.com/suhailbasha/algorithms/master/1minstock.csv')
+df = pd.read_csv('gs://stockcsv/oneminstock.csv')
 
 available_indicators = df['Ticker'].unique()
 
