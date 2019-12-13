@@ -7,7 +7,7 @@ from dash.dependencies import Output, Input
 import plotly.graph_objs as go
 import numpy as np
 from keras.layers import LSTM, Dense, Dropout
-from flask import Flask
+import flask
 import os
 from keras.layers.recurrent import GRU
 from keras.models import Sequential, load_model
@@ -31,11 +31,8 @@ colors = {
     'text': 'white'
 }
 
-server = Flask(__name__)
-server.secret_key = os.environ.get('secret_key', 'secret')
-app = dash.Dash(name = __name__, server = server)
-app.config.supress_callback_exceptions = True
-
+server = flask.Flask(__name__)
+app = dash.Dash(__name__, server=server)
 df = pd.read_csv('https://raw.githubusercontent.com/suhailbasha/algorithms/master/1minstock.csv')
 
 available_indicators = df['Ticker'].unique()
@@ -273,5 +270,6 @@ def update_fig(input_value):
             fig.update_layout(template=template)
 
         return fig
+    
 
 
