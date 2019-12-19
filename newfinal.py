@@ -23,14 +23,14 @@ from keras.optimizers import SGD
 from flask import Flask
 import os
 
+app = dash.Dash(__name__)
+
+server = app.server
+app.config.supress_callback_exceptions = True
 
 df = pd.read_csv('https://raw.githubusercontent.com/suhailbasha/Pridict/master/1minstock.csv', sep=",")
 available_indicators = df['Ticker'].unique()
 
-server = Flask(__name__)
-server.secret_key = os.environ.get('secret_key', 'secret')
-app = dash.Dash(name = __name__, server = server)
-app.config.supress_callback_exceptions = True
 
 app.layout = html.Div([
     html.H2('stock prediction'),
@@ -140,4 +140,5 @@ def update_fig(input_value):
         fig = go.Figure(data=[trace1, trace2])
 
         return fig
-
+if __name__ == '__main__':
+    app.run_server(debug=True)
