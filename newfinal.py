@@ -24,7 +24,7 @@ from keras.optimizers import SGD
 
 
 
-df = pd.read_csv('/home/client-006/Downloads/oneminstock.csv', sep=",")
+df = pd.read_csv('https://raw.githubusercontent.com/suhailbasha/Pridict/master/1minstock.csv', sep=",")
 available_indicators = df['Ticker'].unique()
 dash_app = dash.Dash()
 app = dash_app.server
