@@ -13,7 +13,6 @@ from keras.models import Sequential, load_model
 import math
 
 # pandas is imported to read the csv file and perform preprocessing on the dataset.
-import pandas
 # matlpotlib is used to visualize the plot
 # MinMaxScalar is used to normalize the value before training
 from sklearn.preprocessing import MinMaxScaler
