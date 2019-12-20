@@ -23,16 +23,16 @@ from keras.optimizers import SGD
 from flask import Flask
 import os
 
-app = dash.Dash(__name__)
-
-server = app.server
+dash_app = dash.Dash()
+app = dash_app.server
 app.config.supress_callback_exceptions = True
 
-df = pd.read_csv('https://raw.githubusercontent.com/suhailbasha/Pridict/master/1minstock.csv', sep=",")
+df = pd.read_csv('https://raw.githubusercontent.com/balakrishnans0214/Dashdropdown/master/All.csv')
+
 available_indicators = df['Ticker'].unique()
 
 
-app.layout = html.Div([
+dash_app.layout = html.Div([
     html.H2('stock prediction'),
     dcc.Dropdown(
         id='x1',
@@ -49,7 +49,7 @@ app.layout = html.Div([
     ),
 ])
 
-@app.callback(Output(component_id='g1',component_property='figure'),
+@dash_app.callback(Output(component_id='g1',component_property='figure'),
               [Input(component_id='x1',component_property='value')],
               )
 def update_fig(input_value):
@@ -141,4 +141,4 @@ def update_fig(input_value):
 
         return fig
 if __name__ == '__main__':
-    app.run_server()
+    dash_app.run_server()
