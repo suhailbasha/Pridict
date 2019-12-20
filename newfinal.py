@@ -20,19 +20,18 @@ from sklearn.preprocessing import MinMaxScaler
 # keras has 2 models one is functional and another is sequential
 from keras.models import Sequential
 from keras.optimizers import SGD
-from flask import Flask
-import os
 
-dash_app = dash.Dash()
-app = dash_app.server
-app.config.supress_callback_exceptions = True
+from flask import Flask, escape, request
+
+app = Flask(__name__)
+
 
 df = pd.read_csv('https://raw.githubusercontent.com/suhailbasha/Pridict/master/1minstock.csv')
 
 available_indicators = df['Ticker'].unique()
 
 
-dash_app.layout = html.Div([
+app.layout = html.Div([
     html.H2('stock prediction'),
     dcc.Dropdown(
         id='x1',
@@ -49,7 +48,7 @@ dash_app.layout = html.Div([
     ),
 ])
 
-@dash_app.callback(Output(component_id='g1',component_property='figure'),
+@app.callback(Output(component_id='g1',component_property='figure'),
               [Input(component_id='x1',component_property='value')],
               )
 def update_fig(input_value):
@@ -140,5 +139,3 @@ def update_fig(input_value):
         fig = go.Figure(data=[trace1, trace2])
 
         return fig
-if __name__ == '__main__':
-    dash_app.run_server()
