@@ -11,7 +11,8 @@ from keras.layers import LSTM, Dense, Dropout
 from keras.layers.recurrent import GRU
 from keras.models import Sequential, load_model
 import math
-
+from flask import Flask
+import os
 # pandas is imported to read the csv file and perform preprocessing on the dataset.
 # matlpotlib is used to visualize the plot
 # MinMaxScalar is used to normalize the value before training
@@ -20,10 +21,10 @@ from sklearn.preprocessing import MinMaxScaler
 # keras has 2 models one is functional and another is sequential
 from keras.models import Sequential
 from keras.optimizers import SGD
-
-from flask import Flask, escape, request
-
-app = Flask(__name__)
+server = Flask(__name__)
+server.secret_key = os.environ.get('secret_key', 'secret')
+app = dash.Dash(name = __name__, server = server)
+app.config.supress_callback_exceptions = True
 
 
 df = pd.read_csv('https://raw.githubusercontent.com/suhailbasha/Pridict/master/1minstock.csv')
