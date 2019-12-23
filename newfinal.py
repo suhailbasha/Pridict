@@ -23,7 +23,7 @@ from keras.models import Sequential
 from keras.optimizers import SGD
 server = Flask(__name__)
 server.secret_key = os.environ.get('secret_key', 'secret')
-app = app.server
+app = dash.Dash(__name__)
 app.config.supress_callback_exceptions = True
 
 
