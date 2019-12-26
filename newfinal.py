@@ -140,7 +140,3 @@ def update_fig(input_value):
         fig = go.Figure(data=[trace1, trace2])
 
         return fig
-
-    
-if __name__ == '__main__':
-    app.run_server(debug=True)
