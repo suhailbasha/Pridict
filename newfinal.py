@@ -141,8 +141,8 @@ def update_fig(input_value):
 
         return fig
 
- if __name__ == '__main__':
+if __name__ == '__main__':
     app.run_server(debug=True)
-    
+
     
   
