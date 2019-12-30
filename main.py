@@ -23,7 +23,7 @@ from keras.models import Sequential
 from keras.optimizers import SGD
 server = Flask(__name__)
 server.secret_key = os.environ.get('secret_key', 'secret')
-app = dash.Dash(__name__)
+app = dash.Dash(name = __name__, server = server)
 app.config.supress_callback_exceptions = True
 
 
@@ -41,7 +41,7 @@ app.layout = html.Div([
 
     ),
     dcc.Graph(
-        id="g1",
+        id='g1',
         figure={'layout': {
             'height': 600,
             'width': 1500,
@@ -140,9 +140,6 @@ def update_fig(input_value):
         fig = go.Figure(data=[trace1, trace2])
 
         return fig
-
-if __name__ == '__main__':
-    app.run_server(debug=True)
 
     
   
