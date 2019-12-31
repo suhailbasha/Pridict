@@ -15,7 +15,3 @@ resources:
   memory_gb: 3
   disk_size_gb: 10
    
-url: /.*
-  secure: always
-  redirect_http_response_code: 301
-  script: auto
