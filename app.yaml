@@ -12,8 +12,7 @@ manual_scaling:
 env_variables:
   BUCKET_NAME: "stockcsv"
   
-manual_scaling:
-  instances: 1
+
 resources:
   cpu: 1
   memory_gb: 3
