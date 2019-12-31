@@ -4,6 +4,8 @@ runtime_config:
   python_version: 3.7
 
 instance_class: B8
+
+
 manual_scaling:
   instances: 5
   
