@@ -27,7 +27,7 @@ app = dash.Dash(name = __name__, server = server)
 app.config.supress_callback_exceptions = True
 
 
-df = pd.read_csv('https://raw.githubusercontent.com/suhailbasha/Pridict/master/1minstock.csv')
+df = pd.read_csv('gs://stockcsv/1minstock.csv')
 
 available_indicators = df['Ticker'].unique()
 
